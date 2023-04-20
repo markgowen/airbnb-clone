@@ -4,8 +4,14 @@ import Container from "../Container";
 import Logo from "./Logo";
 import Search from "./Search";
 import UserMenu from "./UserMenu";
+import React from "react";
+import { SafeUser } from "@/app/types";
 
-export default function Navbar() {
+interface NavbarProps {
+    currentUser: SafeUser | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   return (
     <div className="fixed z-10 w-full bg-white shadow-sm">
       <div
@@ -26,10 +32,12 @@ export default function Navbar() {
           >
             <Logo />
             <Search />
-            <UserMenu />
+            <UserMenu currentUser={currentUser} />
           </div>
         </Container>
       </div>
     </div>
   );
 }
+
+export default Navbar;
