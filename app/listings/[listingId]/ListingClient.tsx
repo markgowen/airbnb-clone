@@ -1,7 +1,8 @@
 "use client";
 
 import axios from "axios";
-import { use, useCallback, useEffect, useMemo, useState } from "react";
+import { Range } from "react-date-range";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 
 import Container from "@/app/components/Container";
@@ -37,12 +38,12 @@ const ListingClient: React.FC<ListingClientProps> = ({
 }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [totalPrice, setTotalPrice] = useState(listing.price);
-	const [dateRange, setDateRange] = useState(initialDateRange);
+	const [dateRange, setDateRange] = useState<Range>(initialDateRange);
 
 	const loginModal = useLoginModal();
 	const router = useRouter();
 
-	const disablecheckin = useMemo(() => {
+	const disabledDates = useMemo(() => {
 		let dates: Date[] = [];
 
 		reservations.forEach((reservation) => {
