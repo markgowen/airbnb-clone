@@ -2,21 +2,21 @@
 
 import axios from "axios";
 import { toast } from "react-hot-toast";
-
 import { useCallback, useState } from "react";
 import { useRouter } from "next/navigation";
 
-import Container from "../components/Container";
-import Heading from "../components/Heading";
 import { SafeReservation, SafeUser } from "../types";
+
+import Heading from "../components/Heading";
+import Container from "../components/Container";
 import ListingCard from "../components/listings/ListingCard";
 
-interface TripsClientProps {
+interface ReservationsClientProps {
 	reservations: SafeReservation[];
-	currentUser?: SafeUser | null;
+	currentUser: SafeUser;
 }
 
-const TripsClient: React.FC<TripsClientProps> = ({
+const ReservationsClient: React.FC<ReservationsClientProps> = ({
 	reservations,
 	currentUser,
 }) => {
@@ -30,11 +30,11 @@ const TripsClient: React.FC<TripsClientProps> = ({
 			axios
 				.delete(`/api/reservations/${id}`)
 				.then(() => {
-					toast.success("Reservation successfully cancelled");
+					toast.success("Reservation cancelled successfully");
 					router.refresh();
 				})
-				.catch((error) => {
-					toast.error(error?.response?.data?.error);
+				.catch(() => {
+					toast.error("Something went wrong");
 				})
 				.finally(() => {
 					setDeletingId("");
@@ -46,8 +46,8 @@ const TripsClient: React.FC<TripsClientProps> = ({
 	return (
 		<Container>
 			<Heading
-				title="Trips"
-				subtitle="Where you're going and where you've been"
+				title="Reservations"
+				subtitle="Manage your property reservations"
 			/>
 			<div
 				className="
@@ -70,7 +70,7 @@ const TripsClient: React.FC<TripsClientProps> = ({
 						actionId={reservation.id}
 						onAction={onCancel}
 						disabled={deletingId === reservation.id}
-						actionLabel="Cancel Reservation"
+						actionLabel="Cancel guest reservation"
 						currentUser={currentUser}
 					/>
 				))}
@@ -79,4 +79,4 @@ const TripsClient: React.FC<TripsClientProps> = ({
 	);
 };
 
-export default TripsClient;
+export default ReservationsClient;
