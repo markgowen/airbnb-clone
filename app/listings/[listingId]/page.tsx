@@ -33,6 +33,3 @@ const ListingPage = async ({ params }: { params: IParams }) => {
 };
 
 export default ListingPage;
-function getReservationById(params: IParams) {
-	throw new Error("Function not implemented.");
-}
