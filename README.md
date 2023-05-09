@@ -1,6 +1,6 @@
 # Airbnb Clone
 
-This project is an Airbnb clone built with Next.js, Tailwind CSS, Prisma, and MongoDB. It was developed by following a tutorial by Coding with Antonio.
+This project is an Airbnb clone built with Next.js, Tailwind CSS, Prisma, and MongoDB. It was developed by following a tutorial by Code with Antonio.
 
 ## Features
 
