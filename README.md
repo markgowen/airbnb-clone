@@ -1,8 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Airbnb Clone
 
-## Getting Started
+This project is an Airbnb clone built with Next.js, Tailwind CSS, Prisma, and MongoDB. It was developed by following a tutorial by Coding with Antonio.
 
-First, run the development server:
+## Features
+
+- Users can search for properties based on location and dates.
+- Users can view property details, including descriptions, images, and pricing information.
+- Users can book properties by selecting dates and providing payment information.
+- Property owners can create listings by providing property details and uploading images.
+
+## Installation
+
+To run this project locally, follow these steps:
+
+1. Clone this repository to your local machine.
+2. Install the necessary dependencies by running the following command in the project directory:
+
+```bash
+npm install
+```
+
+3. Set up a MongoDB database and update the `DATABASE_URL` environment variable in the `.env` file.
+4. Run the following command to start the development server:
 
 ```bash
 npm run dev
@@ -12,25 +31,31 @@ yarn dev
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+5. Open `http://localhost:3000` in your web browser to view the app.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Technologies Used
 
-[http://localhost:3000/api/hello](http://localhost:3000/api/hello) is an endpoint that uses [Route Handlers](https://beta.nextjs.org/docs/routing/route-handlers). This endpoint can be edited in `app/api/hello/route.ts`.
+- [Next.js](https://nextjs.org/) - a React framework for building server-side rendered and statically generated applications.
+- [Tailwind CSS](https://tailwindcss.com/) - a utility-first CSS framework.
+- [Prisma](https://www.prisma.io/) - a modern database toolkit for Node.js.
+- [MongoDB](https://www.mongodb.com/) - a NoSQL document database.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Deployment
 
-## Learn More
+To deploy this project on Vercel, follow these steps:
 
-To learn more about Next.js, take a look at the following resources:
+1. Fork this repository and create a new project on [Vercel](https://vercel.com/).
+2. Connect your Vercel project to your forked repository.
+3. Set up the necessary environment variables in the Vercel dashboard, including `DATABASE_URL`.
+4. Deploy the project to Vercel and wait for the deployment to complete.
+5. Open the URL provided by Vercel to view the deployed app.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Note: Make sure to keep your environment variables private and never share them publicly.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Credits
 
-## Deploy on Vercel
+This project was developed by following a tutorial by [Coding with Antonio](https://www.youtube.com/c/CodingwithAntonio). Thank you to Antonio for creating such a helpful resource!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT). Feel free to use and modify this code for your own purposes.
