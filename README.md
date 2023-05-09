@@ -54,7 +54,7 @@ Note: Make sure to keep your environment variables private and never share them 
 
 ## Credits
 
-This project was developed by following a tutorial by [Coding with Antonio](https://www.youtube.com/c/CodingwithAntonio). Thank you to Antonio for creating such a helpful resource!
+This project was developed by following a tutorial by [Code with Antonio](https://www.youtube.com/@codewithantonio). Thank you to Antonio for creating such a helpful resource!
 
 ## License
 
