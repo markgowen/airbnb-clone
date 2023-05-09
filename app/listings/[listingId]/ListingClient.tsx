@@ -12,9 +12,8 @@ import { categories } from "@/app/components/navbar/Categories";
 import ListingReservation from "@/app/components/listings/ListingReservation";
 
 import useLoginModal from "@/app/hooks/useLoginModal";
-import { SafeListing, SafeUser } from "@/app/types";
+import { SafeListing, SafeReservation, SafeUser } from "@/app/types";
 
-import { Reservation } from "@prisma/client";
 import { differenceInCalendarDays, eachDayOfInterval } from "date-fns";
 import { toast } from "react-hot-toast";
 
@@ -24,7 +23,7 @@ const initialDateRange = {
 	key: "selection",
 };
 interface ListingClientProps {
-	reservations?: Reservation[];
+	reservations?: SafeReservation[];
 	listing: SafeListing & {
 		user: SafeUser;
 	};
