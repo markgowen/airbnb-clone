@@ -3,29 +3,33 @@ import { Inter } from "next/font/google";
 import ClientOnly from "./components/ClientOnly";
 import Container from "./components/Container";
 import EmptyState from "./components/EmptyState";
-import getListings from "./actions/getListings";
+import getListings, { IListingsParams } from "./actions/getListings";
 import ListingCard from "./components/listings/ListingCard";
 import getCurrentUser from "./actions/getCurrentUser";
 
 const inter = Inter({ subsets: ["latin"] });
 
-export default async function Home() {
-  const listings = await getListings();
-  const currentUser = await getCurrentUser();
+interface HomeProps {
+	searchParams: IListingsParams;
+}
 
-  if (listings.length === 0) {
-    return (
-      <ClientOnly>
-        <EmptyState showReset />
-      </ClientOnly>
-    );
-  }
+const Home = async ({ searchParams }: HomeProps) => {
+	const listings = await getListings(searchParams);
+	const currentUser = await getCurrentUser();
 
-  return (
-    <ClientOnly>
-      <Container>
-        <div
-          className="
+	if (listings.length === 0) {
+		return (
+			<ClientOnly>
+				<EmptyState showReset />
+			</ClientOnly>
+		);
+	}
+
+	return (
+		<ClientOnly>
+			<Container>
+				<div
+					className="
             grid
             grid-cols-1
             gap-8
@@ -36,18 +40,20 @@ export default async function Home() {
             xl:grid-cols-5
             2xl:grid-cols-6
         "
-        >
-          {listings.map((listing) => {
-            return (
-              <ListingCard
-                currentUser={currentUser}
-                key={listing.id}
-                data={listing}
-              />
-            );
-          })}
-        </div>
-      </Container>
-    </ClientOnly>
-  );
-}
+				>
+					{listings.map((listing) => {
+						return (
+							<ListingCard
+								currentUser={currentUser}
+								key={listing.id}
+								data={listing}
+							/>
+						);
+					})}
+				</div>
+			</Container>
+		</ClientOnly>
+	);
+};
+
+export default Home;
