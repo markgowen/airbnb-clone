@@ -6,7 +6,7 @@ This project is an Airbnb clone built with Next.js, Tailwind CSS, Prisma, and Mo
 
 - Users can search for properties based on location and dates.
 - Users can view property details, including descriptions, images, and pricing information.
-- Users can book properties by selecting dates and providing payment information.
+- Users can book properties by selecting dates.
 - Property owners can create listings by providing property details and uploading images.
 
 ## Installation
