@@ -11,7 +11,8 @@ export interface IListingsParams {
 	category?: string;
 }
 
-export default async function getListings(params: IListingsParams) {
+// ✅ Make params optional by giving it a default value of {}
+export default async function getListings(params: IListingsParams = {}) {
 	try {
 		const {
 			userId,
@@ -81,12 +82,17 @@ export default async function getListings(params: IListingsParams) {
 				createdAt: "desc",
 			},
 		});
+
 		const safeListings = listings.map((listing) => ({
 			...listing,
 			createdAt: listing.createdAt.toISOString(),
 		}));
+
 		return safeListings;
 	} catch (error: any) {
-		throw new Error(error);
+		console.error("Failed to fetch listings in getListings:", error);
+		// You can either rethrow or just return an empty array:
+		// throw new Error(error);
+		return [];
 	}
 }
